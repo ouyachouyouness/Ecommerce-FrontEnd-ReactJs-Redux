@@ -4,7 +4,7 @@ const Layout = ({title, description, className, children}) => {
     return (
         <div>
             <div className="jumbotron">
-                <h1 className="display-01">{title}</h1>
+                <h1 className="display-04">{title}</h1>
                 <p className="lead">{description}</p>
             </div>
             <div className={className}>
