@@ -48,13 +48,23 @@ const  Menu = (props) => {
                         <li className="nav-item">
                             <Link style={isActive(props.history, '/')} className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link style={isActive(props.history, '/dashboard')}
                                 className="nav-link active" 
-                                to= '/dashboard'>
+                                to = '/dashboard'
+                                >
                                 Dashboard
                             </Link>
-                        </li>
+                        </li> */}
+                        <li className="nav-item active">
+                        <Link 
+                            style={isActive(props.history, '/dashboard')} 
+                            className="nav-link" 
+                            to={`${isAuthentificated() && isAuthentificated().user.role === 1 ? '/admin' : ''}/dashboard`}
+                            >
+                                dashboard
+                        </Link>
+                    </li>
                      </Fragment>
                 
 
