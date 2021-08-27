@@ -1,0 +1,64 @@
+{/* <Layout 
+    title="Product" 
+    description="New Product" 
+    className="container"
+ >
+    
+    <div className="row">
+        <div className="col-md-6 mx-auto">
+            <form onSubmit={submitProduct}>
+
+                  <div class="input-group">
+                      <div class="input-group">
+                          <span class="input-group-text my-3">Upload photo</span>
+                      </div>
+
+                      <div class="custom-file">
+                          <input  onChange={handleChange}  type="file" class="custom-file-input"/>
+                          <label for="" class="custome-fole-label">Product</label>
+                      </div>
+                  </div>
+
+                 <div className="form-group">
+                     <label  htmlFor="" className="text-muted "></label>
+                     <input onChange={handleChange} value={product.name} required autoFocus placeholder="Add name of Product" onChange={handleChange} type="text" className="form-control"/>
+                 </div>
+
+                  <div class="form-group my-3">
+                      <label for="description">description</label>
+                      <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group my-3">
+                      <label for="quantity">quantity</label>
+                      <input onChange={handleChange} type="number" class=" form-control" id="quantity"/>
+                  </div>
+                  <div class="form-group my-3">
+                      <label for="price">Price</label>
+                      <input onChange={handleChange} type="number" class="form-control" name= "price"/>
+                  </div>
+                  <div class="form-group my-3">
+                      <label for="category">category</label>
+                      <select onChange={handleChange} name="category" id="category" class="form-control">
+                      <option value="0">Select a category</option>
+                      <option value="6112a5832c0d5a4d88f39d10">Box</option>
+                          
+                      </select>
+                  </div>
+
+                  <div class="form-group my-3">
+                      <label for="shippin">shippin</label>
+                      <select onChange={handleChange} name="shippin" id="shippin" class="form-control">
+                      <option value="false">No</option>
+                      <option value="true">Yes</option>
+                      </select>
+                  </div>
+                  
+                  {JSON.stringify(product)}
+
+                
+                <button className="my-5 btn btn-outline-primary">New Product</button>
+            </form>
+        </div>
+    </div>
+    
+ </Layout> */}
