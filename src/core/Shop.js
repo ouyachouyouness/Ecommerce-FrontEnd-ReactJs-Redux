@@ -3,6 +3,7 @@ import Layout from './Layout'
 import {getCategories, filterProducts} from './ApiCore'
 import FilterByCategory from './FilterByCategory'
 import FilterByPrice from './FilterByPrice'
+import Card from './Card'
 
 const Shop = ()  => {
 
@@ -44,7 +45,7 @@ const Shop = ()  => {
               className="container">
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <FilterByCategory
                          categories={categories}
                          handleFilters={(data) => handleFilters(data, 'category')}
@@ -53,9 +54,17 @@ const Shop = ()  => {
                          <hr/>
                          <FilterByPrice handleFilters={data => handleFilters(data, 'price')} />
                     </div>
-                    <div class="col-md-8">
-                        {JSON.stringify(myFilters)}<br/>
-                        {JSON.stringify(productFiltred)}
+                    <div className="col-md-9">
+                    <h1>Best Sellers</h1>
+                        <div className="row">
+                                {productFiltred.map((product, i) => (
+                                    
+                                    <div key={product._id} class="col-md-4">
+                                        <Card product={product}></Card>
+                                    </div>
+                                
+                                ))}
+                            </div>
                     </div>
                 </div>
 

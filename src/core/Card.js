@@ -7,13 +7,16 @@ const Card = ({product}) => {
         <div>
             <div class="card my-2">
                 <div class="card-header">
-                <h2 className="display-6 mr-2">{product.name}</h2></div>
+                <h4 className="display-6 mr-2"><span class="badge bg-light text-dark">{product.name}</span></h4></div>
                 <ShowImage item={product} url="product/photo" className="card-img-top"></ShowImage>
                 
                 <div class="card-body">
                     <p>{product.description}</p>
-                    <p>${product.price}</p>
-                    <button class="btn btn-warning mr-2">View Product</button>
+                    <div>
+                    <span class="badge bg-info text-dark">${product.price}</span><br/>
+                    <span class="badge rounded-pill bg-secondary">{product.category.name}</span><br/>
+                    </div>
+                    <button class="btn btn-warning mx-2">View</button>
                     <button class="btn btn-success my-2">Add to cart</button>
                 </div>
             </div> 
