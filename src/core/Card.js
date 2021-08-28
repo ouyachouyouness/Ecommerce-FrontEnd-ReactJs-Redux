@@ -12,7 +12,7 @@ const Card = ({product}) => {
                 
                 <div class="card-body">
                     <p>{product.description}</p>
-                    <p>{product.price}</p>
+                    <p>${product.price}</p>
                     <button class="btn btn-warning mr-2">View Product</button>
                     <button class="btn btn-success my-2">Add to cart</button>
                 </div>
