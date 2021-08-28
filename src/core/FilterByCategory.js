@@ -1,20 +1,23 @@
 
+
 import React, { useState} from 'react'
+import "@babel/polyfill";
 
-
-export default function FilterByCategory({ categories}) {
+export default function FilterByCategory({ categories, handleFilters}) {
 
     const [checked] = useState(new Set())
 
     const handleCategory = (category) => {
-
-        if(checked.has(category._id)){
+       
+        if(checked.has(category._id)) {
             checked.delete(category._id)
-        }else{
-            checked.add(category._id)
-
         }
-        console.log(checked);
+        else{
+            checked.add(category._id)
+        }
+        
+        handleFilters(Array.from(checked))
+
     }
     return (
         <div>
