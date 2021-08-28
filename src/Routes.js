@@ -3,6 +3,7 @@ import { BrowserRouter , Switch, Route} from 'react-router-dom';
 import Signin  from './user/Signin';
 import Signup  from './user/Signup';
 import Home  from './core/Home';
+import Shop  from './core/Shop';
 import Menu  from './core/Menu';
 import Dashboard from './user/Dashboard';
 import AdminDashboard from './user/AdminDashboard';
@@ -18,6 +19,7 @@ const Routes = () => {
         <Menu/>
             <Switch>
                 <PrivateRoute path= '/' exact component= {Home} />
+                <PrivateRoute path= '/Shop' exact component= {Shop} />
                 <AdminRoute path= '/admin/dashboard' exact component= {AdminDashboard} /> 
                 <AdminRoute path= '/create/category' exact component= {AddCategory} /> 
                 <AdminRoute path= '/create/product' exact component= {AddProduct} /> 

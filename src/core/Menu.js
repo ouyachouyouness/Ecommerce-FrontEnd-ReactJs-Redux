@@ -48,6 +48,9 @@ const  Menu = (props) => {
                         <li className="nav-item">
                             <Link style={isActive(props.history, '/')} className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link style={isActive(props.history, '/Shop')} className="nav-link active" aria-current="page" to="/Shop">Shop</Link>
+                        </li>
                         {/* <li className="nav-item">
                             <Link style={isActive(props.history, '/dashboard')}
                                 className="nav-link active" 
