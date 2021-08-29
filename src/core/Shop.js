@@ -8,8 +8,9 @@ import Card from './Card'
 const Shop = ()  => {
 
     const [categories, setCategories] = useState([])
-    const [limit, setLimit] = useState(12)
+    const [limit] = useState(3)
     const [skip, setSkip] = useState(0)
+    const [size, setSize] = useState(0)
     const [productFiltred, setproductFiltred] = useState([])
 
 
@@ -23,7 +24,11 @@ const Shop = ()  => {
         .then(res => setCategories(res))
 
         filterProducts(skip, limit, myFilters)
-        .then(res => setproductFiltred(res))
+        .then(res => {
+            setproductFiltred(res)
+            setSize(res.length)
+            
+        })
     }, [myFilters])
 
     const handleFilters = (data, filterBy) => {
@@ -34,6 +39,36 @@ const Shop = ()  => {
 
         //console.log('SHOP', data, filterBy);
 
+    }
+    
+    const loadMore = () => {
+
+        const toSkip = skip + limit;
+
+        filterProducts(toSkip, limit, myFilters)
+        .then(res => {
+            console.log(res);
+            setproductFiltred([...productFiltred,...res])
+            setSkip(0)
+            setSize(res.length)
+
+        })
+    }
+
+    const buttonToLoadMore = () => {
+        return (
+
+            size > 0 &&
+             size >= limit &&
+            (
+            <div classNam="text-center">
+
+                <button onClick={loadMore} className="btn btn-outline-success">Load More</button>
+            </div>
+            
+
+            )
+        )
     }
 
 
@@ -65,6 +100,8 @@ const Shop = ()  => {
                                 
                                 ))}
                             </div>
+
+                            {buttonToLoadMore()}
                     </div>
                 </div>
 

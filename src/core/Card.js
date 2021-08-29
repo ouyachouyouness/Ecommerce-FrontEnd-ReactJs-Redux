@@ -5,7 +5,7 @@ import ShowImage from './ShowImage'
 const Card = ({product}) => {
     return (
         <div>
-            <div class="card my-2">
+            <div class="card  mb-2 px-2">
                 <div class="card-header">
                 <h4 className="display-6 mr-2"><span class="badge bg-light text-dark">{product.name}</span></h4></div>
                 <ShowImage item={product} url="product/photo" className="card-img-top"></ShowImage>
