@@ -2,6 +2,7 @@ import React ,{useState, useEffect} from 'react'
 import Layout from './Layout'
 import { getProduct} from './ApiCore'
 import Card from './Card'
+import Search from './Search'
 
 function Home() {
 
@@ -29,7 +30,10 @@ function Home() {
              title="Home page" 
              description = "Node react ecommerce"
               className="container">
+                
+                <Search/>
 
+                <hr/>
 
                   <h1> Arrival Producs</h1>
                     <div className="row mt-3 mb-5">
