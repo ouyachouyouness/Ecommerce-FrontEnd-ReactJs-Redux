@@ -1,13 +1,32 @@
 
 import { API_URL } from "../config"
+import queryString from 'query-string'
 
-export const getProduct = (sortBy, order, limit) => {
+export const getProduct = (params) => {
     
-    return fetch(`${API_URL}/product?sortBy=${sortBy}&order=${order}&limit=${limit}`)
+    let query = queryString.stringify(params)
+
+    return fetch(`${API_URL}/product?${query}`)
      .then(res => res.json())
      .then(res => res.products)
      .catch(err => console.error(err))
 }
+
+
+export const getOneProduct = (id) => {
+
+    return fetch(`${API_URL}/product/${id}`, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(res => res.product)
+    .catch(err => console.error(err))
+
+ }
 
 
 export const getCategories = () => {

@@ -10,12 +10,12 @@ function Home() {
     const [productsArrivals, setProductsArrivals] = useState([])
 
     const loadBestSellers = () => {
-        getProduct('sold', 'desc', 6)
+        getProduct({sortBy: 'sold', order: 'desc', limit: 6})
         .then(products => setProductsBestSellers(products))
     }
 
     const loadArrivals = () => {
-        getProduct('createAt', 'desc', 3)
+        getProduct({sortBy: 'createAt', order: 'desc',limit: 3})
         .then(products => setProductsArrivals(products))
     }
 
@@ -39,7 +39,7 @@ function Home() {
                     <div className="row mt-3 mb-5">
                         {productsArrivals.map((product, i) => (
                             
-                            <div class="col-md-4">
+                            <div key={i} class="col-md-4">
                                 <Card product={product}></Card>
                             </div>
                         
@@ -51,7 +51,7 @@ function Home() {
                   <div className="row">
                         {productsBestSellers.map((product, i) => (
                             
-                            <div class="col-md-4">
+                            <div key={i} class="col-md-4">
                                 <Card product={product}></Card>
                             </div>
                         

@@ -1,14 +1,24 @@
 import React, { useEffect, useState} from 'react'
 
-import { getCategories } from './ApiCore'
+import { getCategories, getProduct } from './ApiCore'
+import Card from './Card'
 
 const Search = () => {
 
     const [categories, setCategories] = useState([])
+    const [products, setProducts] = useState([])
     const [searchData, setSearchData] = useState({search:'', category:''})
 
     const handlechange = (e) => {
         setSearchData({...searchData, [e.target.id] : e.target.value})
+    }
+
+
+    const resultMessage = () => {
+
+        return products && products.length > 0 &&  (
+            <h3>Found {products.length} product(s) </h3>
+        )
     }
 
     const searchSubmit = (e)=>{
@@ -16,9 +26,19 @@ const Search = () => {
         e.preventDefault()
 
         let { search, category} = searchData
-        console.log(search, category);
+
+        if(search || category){
+            getProduct({search: search || undefined, category})
+            .then(res => setProducts(res))
+        }else{
+
+            setProducts([])
+        }
+    
     }
 
+        
+   
     useEffect(() => {
 
         getCategories()
@@ -57,6 +77,19 @@ const Search = () => {
 
                 
             </form>
+
+            <hr/>
+
+            {resultMessage()}
+
+            <div class="row"> 
+                {products.map((product, i) => (
+                    
+                    <div key={product._id} class="col-md-4">
+                        <Card product={product}/> 
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
